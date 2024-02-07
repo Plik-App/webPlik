@@ -1,0 +1,108 @@
+---
+import GridItem from "../components/GridItem.astro";
+---
+
+<section
+  class={`
+    w-full max-w-[1600px]
+    grid lg:grid-cols-10 auto-rows-[22rem] gap-4
+    mx-auto p-6 md:p-12 lg:p-20
+  `}
+>
+  <GridItem
+    class="col-span-10 lg:col-span-4"
+    title="Share galleries"
+    subtitle="Share private galleries with your friends and avoid the hard work of sharing them."
+  >
+    <div
+      slot="image"
+      class="background transition-scale absolute bottom-0 left-0 top-0
+        -z-10 h-full w-full
+        bg-cover bg-center bg-no-repeat opacity-15 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      data-src="/Friends.jpg"
+    >
+    </div>
+
+    <p slot="content" class="max-w-xl text-base md:text-lg"></p>
+  </GridItem>
+  <GridItem
+    class="col-span-10 lg:col-span-6"
+    title="Discover amazing places"
+    subtitle="Discover other people's galleries and plan your next trip. Or maybe you can discover new travel companions."
+  >
+    <div
+      slot="image"
+      class="background transition-scale absolute bottom-0 left-0 top-0
+    -z-10 h-full w-full
+    bg-cover bg-center bg-no-repeat opacity-15 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      data-src="/Friends.jpg"
+    >
+    </div>
+    <p slot="content" class="max-w-xl text-base md:text-lg"></p>
+  </GridItem>
+  <GridItem
+    class="col-span-10 lg:col-span-6"
+    title="Travel companions"
+    subtitle="Create shared galleries with your friends and share incredible moments, we will make sure you remember them."
+  >
+    <div
+      slot="image"
+      class="background transition-scale absolute bottom-0 left-0 top-0
+        -z-10 h-full w-full
+        bg-cover bg-center bg-no-repeat opacity-15 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      data-src="/Friends.jpg"
+    >
+    </div>
+    <p slot="content" class="max-w-xl text-base md:text-lg"></p>
+  </GridItem>
+  <GridItem
+    class="col-span-10 lg:col-span-4"
+    title="Design your profile"
+    subtitle="Share your memories with other users and show your amazing trips, moments or events."
+  >
+    <div
+      slot="image"
+      class="background transition-scale absolute bottom-0 left-0 top-0
+        -z-10 h-full w-full
+        bg-cover bg-center bg-no-repeat opacity-15 bg-blend-luminosity duration-1000 ease-in-out group-hover:scale-110"
+      data-src="/Friends.jpg"
+    >
+    </div>
+    <p slot="content" class="max-w-xl text-base md:text-lg"></p>
+  </GridItem>
+</section>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const backgrounds = document.querySelectorAll(
+      ".background"
+    ) as NodeListOf<HTMLElement>;
+
+    if (window.IntersectionObserver == null) {
+      backgrounds.forEach((bkg) => {
+        bkg.style.backgroundImage = "url('" + bkg.dataset.src + "')";
+      });
+      return;
+    }
+
+    function handleIntersection(entries: IntersectionObserverEntry[]) {
+      entries.map((entry) => {
+        if (entry.isIntersecting) {
+          const target = entry.target as HTMLElement;
+          const { style, dataset } = target;
+          // Item has crossed our observation
+          // threshold - load src from data-src
+          style.backgroundImage = "url('" + dataset.src + "')";
+          // Job done for this item - no need to watch it!
+          observer.unobserve(entry.target);
+        }
+      });
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: "100px",
+    });
+
+    backgrounds.forEach((bkg) => observer.observe(bkg));
+  });
+</script>

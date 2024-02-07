@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import GalleryPhones from "../components/GalleryPhones.astro";
+import Header from "../components/Header.astro";
+import Grid from "../components/Grid.astro";
+import ExplainText1 from "../components/ExplainText1.astro";
+import ExplainText2 from "../components/ExplainText2.astro";
+import Footer from "../components/Footer.astro";
+import Arrow from "@/components/Arrow.astro";
+---
+
+<Layout
+  title="Plik - Share galleries of events"
+  description="A social network to share galleries with your friends and acquaintances of the events you experience together. Meet and share unique moments, we will make sure you remember them."
+>
+  <div
+    class="snap-y snap-mandatory h-screen w-screen overflow-scroll scrollbar-hide"
+  >
+    <Arrow />
+    <div class="snap-start h-screen">
+      <Header />
+    </div>
+    <!-- <div class="snap-start h-screen">
+      <Grid />
+    </div>-->
+    <div class="snap-start h-screen">
+      <ExplainText1 />
+    </div>
+    <div class="snap-start h-screen">
+      <ExplainText2 />
+    </div>
+    <div class="snap-start h-screen">
+      <GalleryPhones />
+    </div>
+    <div class="snap-start h-screen">
+      <Footer />
+    </div>
+  </div>
+
+  <style></style>
+</Layout>

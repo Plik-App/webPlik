@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Privacity from "@/components/documentsText/Privacity.astro";
+import AvisoLegal from "@/components/documentsText/AvisoLegal.astro";
+
+export function getStaticPaths() {
+  return [{ params: { legal: "privacity" } }, { params: { legal: "legal" } }];
+}
+
+const { legal } = Astro.params;
+---
+
+<Layout
+  title="Plik - Share galleries of events"
+  description="A social network to share galleries with your friends and acquaintances of the events you experience together. Meet and share unique moments, we will make sure you remember them."
+>
+  <div class="h-screen w-screen overflow-scroll scrollbar-hide">
+    <div class="relative flex">
+      <h1
+        class="absolute text-white font-bold top-[15%] z-0 left-0 right-0 m-auto text-center"
+        style="font-size: 9vh;"
+      >
+        <a href="/">Plik</a>
+      </h1>
+    </div>
+
+    <div
+      id="privacity"
+      style={legal === "privacity" ? "display:block" : "display:none"}
+    >
+      <Privacity />
+    </div>
+
+    <div
+      id="advise"
+      style={legal === "legal" ? "display:block" : "display:none"}
+    >
+      <AvisoLegal />
+    </div>
+  </div>
+  <script></script>
+</Layout>
+<style></style>
