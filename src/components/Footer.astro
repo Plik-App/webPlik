@@ -2,25 +2,29 @@
 
 ---
 
-<div class="relative h-dvh w-full max-w-[100vw] md:h-[80vh] xl:h-full">
-  <h2
-    class="absolute text-white top-[35%] z-10 w-[35%] m-auto left-0 right-0 text-center"
-    style="font-size: 4vh;"
-  >
-    Download now and start sharing your galleries with your friends and family.
-  </h2>
-  <img
-    src="./apple-store.svg"
-    alt="Apple Store Logo"
-    class="absolute text-white top-[42.5%] z-10 w-[11%] m-auto left-[17%] right-0 text-center"
-  />
-  <img
-    src="./google-store.svg"
-    alt="Google Store Logo"
-    class="absolute text-white top-[42.5%] z-10 w-[11%] m-auto left-0 right-[17%] text-center"
-  />
+<div class="relative h-dvh w-full flex flex-col">
+  <div class="flex-grow lg:w-[35%] flex flex-col justify-center mx-auto">
+    <h2 class="text-white z-10 text-center" style="font-size: 4vh;">
+      Download now and start sharing your galleries with your friends and
+      family.
+    </h2>
+    <div
+      class="flex flex-col md:flex-row justify-center items-center mt-[-5rem]"
+    >
+      <img
+        src="./google-store.svg"
+        alt="Google Store Logo"
+        class="text-white z-10 w-[13rem] md:mx-14 text-center"
+      />
+      <img
+        src="./apple-store.svg"
+        alt="Apple Store Logo"
+        class="text-white z-10 w-[13rem] md:mx-14 text-center"
+      />
+    </div>
+  </div>
   <div
-    class="absolute bg-black bottom-0 z-20 m-auto w-full h-[5%] text-center"
+    class="bg-black z-20 m-auto w-full h-[5%] text-center"
     style="font-size: 1.5vh;"
   >
     <span class="p-16 underline"><a href="/privacity">Privacy Policy</a></span>|
@@ -37,7 +41,6 @@
       font-weight: 100;
     }
     span {
-      margin-top:;
       line-height: 1.4;
       color: rgba(255, 255, 255, 0.85);
       margin-bottom: 1em;
