@@ -10,12 +10,13 @@ export default {
       },
       colors: {
         primary: "rgb(253 224 71);",
-        "dark-white": "#ffffffd9"
+        "dark-white": "#ffffffd9",
       },
     },
   },
   plugins: [
-    animations, require('tailwind-scrollbar-hide'),
+    animations,
+    require("tailwind-scrollbar-hide"),
     ({ addComponents }) => {
       addComponents({
         ".cp-v": {

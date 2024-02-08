@@ -18,24 +18,66 @@ import Arrow from "@/components/Arrow.astro";
   >
     <Arrow />
     <div class="snap-start h-screen">
-      <Header />
+      <div class="animation-scroll fade-up">
+        <Header />
+      </div>
     </div>
-    <!-- <div class="snap-start h-screen">
+    <!-- <div class="snap-start h-screen animation-scroll">
       <Grid />
     </div> -->
     <div class="snap-start h-screen">
-      <ExplainText1 />
+      <div class="animation-scroll">
+        <ExplainText1 />
+      </div>
     </div>
     <div class="snap-start h-screen">
-      <ExplainText2 />
+      <div class="animation-scroll">
+        <ExplainText2 />
+      </div>
     </div>
     <div class="snap-start h-screen">
-      <GalleryPhones />
+      <div class="animation-scroll">
+        <GalleryPhones />
+      </div>
     </div>
     <div class="snap-start h-screen">
-      <Footer />
+      <div class="animation-scroll">
+        <Footer />
+      </div>
     </div>
   </div>
 
   <style></style>
+  <script>
+    const scrollSnap = document.querySelector(".snap-mandatory");
+    const toAnimate = document.querySelectorAll(".animation-scroll");
+    let antPage = 0;
+    scrollSnap?.addEventListener("scroll", (e) => {
+      const page = Math.ceil(scrollSnap.scrollTop / window.innerHeight);
+
+      if (page !== antPage) {
+        console.log(page);
+        if (page > antPage) {
+          toAnimate.forEach((el, index) => {
+            if (index === page) {
+              el.classList.add("fade-up");
+            } else {
+              el.classList.remove("fade-up");
+              el.classList.remove("fade-down");
+            }
+          });
+        } else {
+          toAnimate.forEach((el, index) => {
+            if (index === page) {
+              el.classList.add("fade-down");
+            } else {
+              el.classList.remove("fade-down");
+              el.classList.remove("fade-up");
+            }
+          });
+        }
+        antPage = page;
+      }
+    });
+  </script>
 </Layout>
