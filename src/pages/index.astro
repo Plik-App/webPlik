@@ -6,7 +6,6 @@ import ExplainText1 from "../components/ExplainText1.astro";
 import ExplainText2 from "../components/ExplainText2.astro";
 import Footer from "../components/Footer.astro";
 import Arrow from "@/components/Arrow.astro";
-import ContactForm from "../components/ContactForm.astro";
 ---
 
 <Layout
@@ -16,38 +15,32 @@ import ContactForm from "../components/ContactForm.astro";
   <div
     class="snap-y snap-mandatory h-screen w-screen overflow-y-scroll scrollbar-hide"
   >
-    <Arrow />
-    <div class="snap-start h-screen">
+    <div id="arrow">
+      <Arrow />
+    </div>
+    <div class="snap-start h-screen overflow-hidden">
       <div class="animation-scroll fade-up">
         <Header />
       </div>
     </div>
-    <!-- <div class="snap-start h-screen animation-scroll">
-      <Grid />
-    </div> -->
-    <div class="snap-start h-screen">
+    <div class="snap-start h-screen overflow-hidden">
       <div class="animation-scroll">
         <ExplainText1 />
       </div>
     </div>
-    <div class="snap-start h-screen">
+    <div class="snap-start h-screen overflow-hidden">
       <div class="animation-scroll">
         <ExplainText2 />
       </div>
     </div>
-    <div class="snap-start h-screen">
+    <div class="snap-start h-screen overflow-hidden">
       <div class="animation-scroll">
         <GalleryPhones />
       </div>
     </div>
-    <div class="snap-start h-screen">
+    <div class="snap-start h-screen overflow-hidden">
       <div class="animation-scroll">
         <Footer />
-      </div>
-    </div>
-    <div class="snap-start h-screen">
-      <div class="animation-scroll">
-        <ContactForm />
       </div>
     </div>
   </div>
@@ -56,9 +49,15 @@ import ContactForm from "../components/ContactForm.astro";
   <script>
     const scrollSnap = document.querySelector(".snap-mandatory");
     const toAnimate = document.querySelectorAll(".animation-scroll");
+    const maxPage = 4;
     let antPage = 0;
     scrollSnap?.addEventListener("scroll", (e) => {
       const page = Math.ceil(scrollSnap.scrollTop / window.innerHeight);
+      if (page >= maxPage) {
+        document.getElementById("arrow").classList.add("hidden");
+      } else {
+        document.getElementById("arrow").classList.remove("hidden");
+      }
 
       if (page !== antPage) {
         console.log(page);
