@@ -6,6 +6,7 @@ import ExplainText1 from "../components/ExplainText1.astro";
 import ExplainText2 from "../components/ExplainText2.astro";
 import Footer from "../components/Footer.astro";
 import Arrow from "@/components/Arrow.astro";
+import Album from "@/components/Album.astro";
 ---
 
 <Layout
@@ -35,6 +36,11 @@ import Arrow from "@/components/Arrow.astro";
     </div>
     <div class="snap-start h-screen overflow-hidden">
       <div class="animation-scroll">
+        <Album />
+      </div>
+    </div>
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll">
         <GalleryPhones />
       </div>
     </div>
@@ -49,7 +55,7 @@ import Arrow from "@/components/Arrow.astro";
   <script>
     const scrollSnap = document.querySelector(".snap-mandatory");
     const toAnimate = document.querySelectorAll(".animation-scroll");
-    const maxPage = 4;
+    const maxPage = 5;
     let antPage = 0;
     scrollSnap?.addEventListener("scroll", (e) => {
       const page = Math.ceil(scrollSnap.scrollTop / window.innerHeight);

@@ -1,0 +1,77 @@
+---
+
+---
+
+<div
+  class="relative h-dvh w-full max-w-[100vw] xl:h-full grid lg:grid-cols-2 place-items-center container overflow-hidden"
+>
+  <div
+    class="grid grid-cols-3 grid-rows-3 h-96 aspect-square [&>div]:w-full [&>div]:h-full gap-2"
+  >
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      1
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      2
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      3
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      4
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      5
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      6
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      7
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      8
+    </div>
+    <div
+      class="hover:bg-white border border-white rounded-lg flex items-end justify-end p-2 hover:text-black albumDiv"
+    >
+      9
+    </div>
+  </div>
+  <h2
+    class="text-dark-white z-10 text-center text-[2.1rem] w-[60%] leading-[1.4] font-light"
+    id="text-id"
+  >
+    Enjoy your travels and unique moments and forget about sharing photos, we
+    take care of that!
+  </h2>
+</div>
+<script>
+  const albumDivs = document.querySelectorAll(".albumDiv");
+  const text = document.getElementById("text-id");
+
+  const texts = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+  albumDivs.forEach((div) => {
+    div.addEventListener("click", (e) => {
+      const index = Array.from(albumDivs).indexOf(e.target);
+      text.textContent = texts[index];
+    });
+  });
+</script>
