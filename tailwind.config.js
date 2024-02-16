@@ -22,6 +22,7 @@ export default {
   plugins: [
     animations,
     require("tailwind-scrollbar-hide"),
+    require("daisyui"),
     addDynamicIconSelectors(),
     ({ addComponents }) => {
       addComponents({

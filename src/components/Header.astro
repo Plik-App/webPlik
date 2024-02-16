@@ -2,9 +2,29 @@
 
 ---
 
-<div
+<header
   class="relative h-dvh w-full max-w-[100vw] md:aspect-video xl:h-full container"
 >
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Yep!</h3>
+      <p class="py-4">This part is in construction, please be patient 🛠️</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  <header class="mt-10 flex justify-between container mx-auto items-center">
+    <img src="/favicon.svg" class="w-20" />
+    <button
+      onclick="my_modal_1.showModal()"
+      class="border h-min px-5 py-2 rounded-full hover:text-black hover:bg-white"
+      >Button</button
+    >
+  </header>
   <h1
     class="text-white font-bold pt-[28vh] m-auto w-[250px] text-center text-[9rem] mb-0 leading-[1.1]"
   >
@@ -16,4 +36,4 @@
     Enjoy your travels and unique moments <br />
     and forget about sharing photos, we take <br /> care of that!
   </h2>
-</div>
+</header>
