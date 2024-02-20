@@ -62,7 +62,7 @@
     take care of that!
   </h2>
 </div>
-<script>
+<script type="module">
   const albumDivs = document.querySelectorAll(".albumDiv");
   const text = document.getElementById("text-id");
 
@@ -70,7 +70,7 @@
 
   albumDivs.forEach((div) => {
     div.addEventListener("click", (e) => {
-      const index = Array.from(albumDivs).indexOf(e.target as Element);
+      const index = Array.from(albumDivs).indexOf(e.target);
       if (text) text.textContent = texts[index];
     });
   });
