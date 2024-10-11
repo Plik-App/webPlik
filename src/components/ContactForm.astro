@@ -1,0 +1,114 @@
+---
+
+---
+
+<div class="relative flex">
+  <h1
+    class="absolute text-white font-bold top-[15%] z-10 left-0 right-0 m-auto text-center text-[9vh]"
+  >
+    <a href="/">Plik</a>
+  </h1>
+</div>
+<div
+  class="relative h-dvh w-full overflow-hidden flex flex-col justify-center items-center"
+>
+  <h2
+    class="text-dark-white z-10 text-center text-[2.1rem] w-[60%] leading-[1.4] font-light mb-10"
+  >
+    Do you have any questions? <br /> Feel free to ask.
+  </h2>
+  <!-- write an email form dark style -->
+  <div class="container flex justify-center items-center">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 justify-center w-3/4 md:w-full gap-5"
+    >
+      <div id="faq">
+        <label class="text-dark-white">
+          <p class="w-full rounded-lg bg-gray-900 font-bold text-xl p-5">
+            FAQ1
+          </p>
+          <input type="radio" name="faq" class="peer hidden" />
+          <p
+            class="h-0 overflow-hidden transition-height duration-500 ease-in-out p-3 peer-checked:h-24 rounded-lg bg-gray-900 opacity-0 peer-checked:opacity-100"
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui ipsa
+            totam voluptatem quisquam soluta enim ratione modi, vitae animi
+            iusto quidem quasi magnam error eaque saepe fuga inventore optio
+            deleniti.
+          </p>
+        </label>
+        <label class="text-dark-white">
+          <p class="w-full border-b font-bold text-xl">FAQ2</p>
+          <input type="radio" name="faq" class="peer hidden" />
+          <p
+            class="h-0 overflow-hidden transition-height duration-500 ease-in-out mt-3 peer-checked:h-24"
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui ipsa
+            totam voluptatem quisquam soluta enim ratione modi, vitae animi
+            iusto quidem quasi magnam error eaque saepe fuga inventore optio
+            deleniti.
+          </p>
+        </label>
+        <label class="text-dark-white">
+          <p class="w-full border-b font-bold text-xl">FAQ3</p>
+          <input type="radio" name="faq" class="peer hidden" />
+          <p
+            class="h-0 overflow-hidden transition-height duration-500 ease-in-out mt-3 peer-checked:h-24"
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui ipsa
+            totam voluptatem quisquam soluta enim ratione modi, vitae animi
+            iusto quidem quasi magnam error eaque saepe fuga inventore optio
+            deleniti.
+          </p>
+        </label>
+        <label class="text-dark-white">
+          <p class="w-full border-b font-bold text-xl">FAQ4</p>
+          <input type="radio" name="faq" class="peer hidden" />
+          <p
+            class="h-0 overflow-hidden transition-height duration-500 ease-in-out mt-3 peer-checked:h-24"
+          >
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui ipsa
+            totam voluptatem quisquam soluta enim ratione modi, vitae animi
+            iusto quidem quasi magnam error eaque saepe fuga inventore optio
+            deleniti.
+          </p>
+        </label>
+      </div>
+      <form class="w-full">
+        <div class="flex flex-col [&>input]:w-full w-full">
+          <label for="name" class="text-dark-white">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Joe"
+            class="w-full h-12 bg-black text-dark-black border-b border-dark-white mb-5 outline-none focus:border-b-2"
+          />
+          <label for="email" class="text-dark-white">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="joe@gmail.com"
+            class="w-full h-12 bg-black text-dark-black border-b border-dark-white mb-5 outline-none focus:border-b-2"
+          />
+        </div>
+        <div class="flex flex-col">
+          <label for="message" class="text-dark-white">Message</label>
+          <textarea
+            name="message"
+            id="message"
+            placeholder="Your message here..."
+            class="w-full h-32 bg-black resize-none border-b border-dark-white mb-5 outline-none focus:border-b-2"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full h-12 bg-[#252525] text-dark-black flex items-center justify-center"
+        >
+          Send <span class="icon-[mingcute--send-plane-line] ms-2"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

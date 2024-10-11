@@ -2,30 +2,38 @@
 
 ---
 
-<div
-  class="relative h-dvh w-full max-w-[100vw] md:aspect-video md:h-[80vh] xl:h-full"
+<header
+  class="relative h-dvh w-full max-w-[100vw] md:aspect-video xl:h-full container"
 >
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Yep!</h3>
+      <p class="py-4">This part is in construction, please be patient 🛠️</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  <header class="mt-10 flex justify-between container mx-auto items-center">
+    <img src="/favicon.svg" class="w-20" />
+    <button
+      onclick="my_modal_1.showModal()"
+      class="border h-min px-5 py-2 rounded-full hover:text-black hover:bg-white"
+      >My Galleries</button
+    >
+  </header>
   <h1
-    class="absolute text-white font-bold top-[25%] z-10 left-0 right-0 m-auto w-[250px] text-center"
-    style="font-size: 15vh;"
+    class="text-white font-bold pt-[28vh] m-auto w-[250px] text-center text-[9rem] mb-0 leading-[1.1]"
   >
     Plik
   </h1>
   <h2
-    class="absolute text-white top-[45%] z-10 w-[32%] text-ellipsis left-0 right-0 m-auto text-center margin pr-2 pl-2"
-    style="font-size: 3.5vh;"
+    class="text-white z-10 text-ellipsis m-auto text-center pr-2 pl-2 text-[2.1rem] mt-0 leading-[1.4] text-dark-white font-light"
   >
-    <p>Enjoy your travels and unique moments</p><p>
-      and forget about sharing photos, we take care of that!
-    </p>
+    Enjoy your travels and unique moments <br />
+    and forget about sharing photos, we take <br /> care of that!
   </h2>
-</div>
-
-<style>
-  h2 {
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 1em;
-    font-weight: 100;
-  }
-</style>
+</header>

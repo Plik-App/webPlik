@@ -2,11 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import GalleryPhones from "../components/GalleryPhones.astro";
 import Header from "../components/Header.astro";
-import Grid from "../components/Grid.astro";
 import ExplainText1 from "../components/ExplainText1.astro";
 import ExplainText2 from "../components/ExplainText2.astro";
 import Footer from "../components/Footer.astro";
 import Arrow from "@/components/Arrow.astro";
+import Album from "@/components/Album.astro";
 ---
 
 <Layout
@@ -14,28 +14,80 @@ import Arrow from "@/components/Arrow.astro";
   description="A social network to share galleries with your friends and acquaintances of the events you experience together. Meet and share unique moments, we will make sure you remember them."
 >
   <div
-    class="snap-y snap-mandatory h-screen w-screen overflow-scroll scrollbar-hide"
+    class="snap-y snap-mandatory h-screen w-screen overflow-y-scroll scrollbar-hide"
   >
-    <Arrow />
-    <div class="snap-start h-screen">
-      <Header />
+    <div id="arrow">
+      <Arrow />
     </div>
-    <!-- <div class="snap-start h-screen">
-      <Grid />
-    </div>-->
-    <div class="snap-start h-screen">
-      <ExplainText1 />
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll fade-up">
+        <Header />
+      </div>
     </div>
-    <div class="snap-start h-screen">
-      <ExplainText2 />
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll">
+        <ExplainText1 />
+      </div>
     </div>
-    <div class="snap-start h-screen">
-      <GalleryPhones />
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll">
+        <ExplainText2 />
+      </div>
     </div>
-    <div class="snap-start h-screen">
-      <Footer />
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll">
+        <Album />
+      </div>
+    </div>
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll">
+        <GalleryPhones />
+      </div>
+    </div>
+    <div class="snap-start h-screen overflow-hidden">
+      <div class="animation-scroll">
+        <Footer />
+      </div>
     </div>
   </div>
 
   <style></style>
+  <script type="module">
+    const scrollSnap = document.querySelector(".snap-mandatory");
+    const toAnimate = document.querySelectorAll(".animation-scroll");
+    const maxPage = 5;
+    let antPage = 0;
+    scrollSnap?.addEventListener("scroll", (e) => {
+      const page = Math.ceil(scrollSnap.scrollTop / window.innerHeight);
+      if (page >= maxPage) {
+        document.getElementById("arrow")?.classList.add("hidden");
+      } else {
+        document.getElementById("arrow")?.classList.remove("hidden");
+      }
+
+      if (page !== antPage) {
+        console.log(page);
+        if (page > antPage) {
+          toAnimate.forEach((el, index) => {
+            if (index === page) {
+              el.classList.add("fade-up");
+            } else {
+              el.classList.remove("fade-up");
+              el.classList.remove("fade-down");
+            }
+          });
+        } else {
+          toAnimate.forEach((el, index) => {
+            if (index === page) {
+              el.classList.add("fade-down");
+            } else {
+              el.classList.remove("fade-down");
+              el.classList.remove("fade-up");
+            }
+          });
+        }
+        antPage = page;
+      }
+    });
+  </script>
 </Layout>

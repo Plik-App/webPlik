@@ -10,7 +10,7 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="text-[14px] md:text-[16px]">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -35,7 +35,8 @@ const { title, description } = Astro.props;
           white 60%
         );
       }
-      html {
+      html,
+      body {
         font-family: system-ui, sans-serif;
         background: black;
         background-size: 224px;
@@ -51,6 +52,36 @@ const { title, description } = Astro.props;
           Bitstream Vera Sans Mono,
           Courier New,
           monospace;
+      }
+
+      .animation-scroll {
+        height: 100vh;
+        transform: translateY(-20px);
+      }
+      .fade-up {
+        animation: fadeUp 1s ease-out forwards;
+      }
+      .fade-down {
+        animation: fadeDown 1s ease-out forwards;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeDown {
+        from {
+          transform: translateY(-20px);
+        }
+        to {
+          transform: translateY(0);
+        }
       }
     </style>
   </body>

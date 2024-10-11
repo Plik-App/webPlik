@@ -2,59 +2,41 @@
 
 ---
 
-<div
-  class="relative h-dvh w-full max-w-[100vw] md:aspect-video md:h-[80vh] xl:h-full flex"
->
+<div class="relative h-dvh w-full flex flex-col items-center justify-between">
   <h2
-    class="absolute top-[10%] z-10 w-[40%] m-auto left-0 right-0 text-center"
+    class="z-10 w-[60%] lg:w-[40%] left-0 right-0 text-center leading-[1.4] text-dark-white mb-[1rem] font-light mt-10"
     id="text"
     style="font-size: 3.5vh;"
   >
-    Share your increible moments with your friends or the world, you decide.
+    Share your increible moments in your profile and let the world know you.
   </h2>
-  <img
-    class="absolute top-[30%] z-10 w-[35vh] m-auto left-0 right-0 text-4xl text-center hover:w-[37vh] hover:top-[27%] duration-1000"
-    src="./mainScreen-portrait.png"
-    id="img"
-  />
-  <img
-    class="absolute top-[40%] z-10 w-[30vh] m-auto left-[34%] right-0 text-4xl text-center hover:w-[32vh] hover:top-[36%] duration-1000"
-    src="./mainScreen-portrait.png"
-    id="img"
-  />
-  <img
-    class="absolute top-[40%] z-10 w-[30vh] m-auto right-[34%] left-0 text-4xl text-center hover:w-[32vh] hover:top-[36%] duration-1000"
-    src="./mainScreen-portrait.png"
-    id="img"
-  />
-  <img
-    class="absolute top-[50%] z-10 w-[25vh] m-auto left-0 right-[64%] text-4xl text-center hover:w-[26vh] hover:top-[48%] duration-1000"
-    src="./mainScreen-portrait.png"
-    id="img"
-  />
-  <img
-    class="absolute top-[50%] z-10 w-[25vh] m-auto right-0 left-[64%] text-4xl text-center hover:w-[26vh] hover:top-[48%] duration-1000"
-    src="./mainScreen-portrait.png"
-    id="img"
-  />
+  <div class="hidden justify-center mx-auto bottom-0 mb-0 items-end xl:flex">
+    <img
+      class="text-changer z-10 w-[13vw] mx-2 text-4xl text-center hover:scale-105 duration-1000"
+      src="./mainScreen-portrait.png"
+    />
+    <img
+      class="text-changer z-10 w-[16vw] mx-2 text-4xl text-center hover:scale-105 duration-1000"
+      src="./mainScreen-portrait.png"
+    />
+    <img
+      class="text-changer z-10 w-[18vw] mx-2 text-4xl text-center hover:scale-105 duration-1000 hover"
+      src="./mainScreen-portrait.png"
+      id="hovered"
+    />
+    <img
+      class="text-changer z-10 w-[16vw] mx-2 text-4xl text-center hover:scale-105 duration-1000"
+      src="./mainScreen-portrait.png"
+    />
+    <img
+      class="text-changer z-10 w-[13vw] mx-2 text-4xl text-center hover:scale-105 duration-1000"
+      src="./mainScreen-portrait.png"
+    />
+  </div>
 </div>
-
-<style>
-  /* img:is(:hover, :focus-within) {
-    width: 3px;
-  }*/
-  h2 {
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 1em;
-    font-weight: 100;
-  }
-  img:hover h2 {
-    display: none;
-  }
-</style>
-<script>
-  const buttons = [...document.querySelectorAll("#img")];
+<script type="module">
+  const hovered = document.querySelector("#hovered");
+  const buttons = [...document.querySelectorAll(".text-changer")];
   const text = document.querySelector("#text");
   const texts = [
     "Share your increible moments with your friends or the world, you decide.",
@@ -65,6 +47,7 @@
   ];
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("mouseover", () => {
+      hovered.classList.remove("hover");
       if (text) text.innerHTML = texts[i];
     });
     buttons[i].addEventListener("mouseout", () => {
@@ -72,3 +55,8 @@
     });
   }
 </script>
+<style>
+  img.hover {
+    transform: scale(1.05);
+  }
+</style>

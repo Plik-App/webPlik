@@ -72,11 +72,9 @@ import GridItem from "../components/GridItem.astro";
   </GridItem>
 </section>
 
-<script>
+<script type="module">
   document.addEventListener("astro:page-load", () => {
-    const backgrounds = document.querySelectorAll(
-      ".background"
-    ) as NodeListOf<HTMLElement>;
+    const backgrounds = document.querySelectorAll(".background");
 
     if (window.IntersectionObserver == null) {
       backgrounds.forEach((bkg) => {
@@ -85,10 +83,10 @@ import GridItem from "../components/GridItem.astro";
       return;
     }
 
-    function handleIntersection(entries: IntersectionObserverEntry[]) {
+    function handleIntersection(entries) {
       entries.map((entry) => {
         if (entry.isIntersecting) {
-          const target = entry.target as HTMLElement;
+          const target = entry.target;
           const { style, dataset } = target;
           // Item has crossed our observation
           // threshold - load src from data-src
